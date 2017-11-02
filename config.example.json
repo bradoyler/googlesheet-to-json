@@ -1,0 +1,8 @@
+{
+  "google": {
+    "client_id": "<from google console>",
+    "client_secret": "<from google console>",
+    "oAuthTokens":{"refresh_token": "<from google OAuth playground>"},
+    "redirect_urls":["http://localhost"]
+  }
+}
