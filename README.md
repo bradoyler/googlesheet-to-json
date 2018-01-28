@@ -6,9 +6,19 @@ Node.js library to read a Google Sheet (v4) and convert to JSON collection
 npm install googlesheet-to-json --save
 ```
 
+### Setup Google Auth Tokens
+```sh
+cp config.example.json config.json
+```
+and populate your `config.json` with `client_id`, `client_secret` & `refresh_token`
+
+[For more info, see getting credentials](#Getting-credentials)
+
 ## CLI
 ```
-npx googlesheet-to-json <spreadsheetId> -r 'Sheet1' -c config.json -o output.json
+npm install -g googlesheet-to-json
+## setup config.json
+googlesheet-to-json <spreadsheetId> -s 'Sheet1' > out.json
 ```
 
 ## API
@@ -29,3 +39,19 @@ gSheetToJSON.getRows(options)
 })
 .catch(console.error)
 ```
+
+#### Getting credentials
+1. Got to https://console.developers.google.com
+2. Create an account
+3. In the right sidebar click `Credentials`
+4. Then click `Create credentials`, select `oAuth client ID`, select `Web application`
+6. Name your Web Application
+7. Enter `https://developers.google.com/oauthplayground` as an authorized redirect URLs
+8. Have your `Client ID` and `Client secret` ready
+9. Go to [https://developers.google.com/oauthplayground/](https://developers.google.com/oauthplayground/)
+10. Under `Step 1` authorize all `Google Sheets API v4`
+11. Click the Gear button in upper right of the page and check `Use your own OAuth credentials`
+13. Enter your `Client ID` and `Client secret`
+14. Click `Authorize APIs`
+15. Then request auth tokens, grab generated the `refresh token`.
+16. Save your `client_id`, `client_secret` & `refresh_token` somewhere
