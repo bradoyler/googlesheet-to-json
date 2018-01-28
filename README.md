@@ -12,7 +12,7 @@ cp config.example.json config.json
 ```
 and populate your `config.json` with `client_id`, `client_secret` & `refresh_token`
 
-[For more info, see getting credentials](#Getting-credentials)
+[For more info, see getting credentials](#getting-credentials)
 
 ## CLI
 ```
@@ -40,9 +40,12 @@ gSheetToJSON.getRows(options)
 .catch(console.error)
 ```
 
-#### Getting credentials
-Use OAuthPlayground to get tokens for a required scope
-> Sorry, this is still a pain...  
+----
+### Getting credentials
+> yes, this is STILL painful
+
+#### Option 1:
+Use OAuthPlayground to get OAuth tokens
 
 1. Goto: https://console.developers.google.com
 2. Create an account
@@ -58,3 +61,10 @@ Use OAuthPlayground to get tokens for a required scope
 14. Click `Authorize APIs`
 15. Then request auth tokens, grab generated the `refresh token`.
 16. Save your `client_id`, `client_secret` & `refresh_token` somewhere
+
+#### Option 2:
+- [Google-OAuth2-Token](https://github.com/h2non/google-oauth2-token) - Get a fresh OAuth2 token for Google APIs in just one command
+
+#### Option 3:
+- [OAuth2L](https://github.com/google/oauth2l)
+(uses Python) - a simple CLI for interacting with Google oauth tokens.
