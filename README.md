@@ -41,6 +41,12 @@ gSheetToJSON.getRows(options)
 ```
 
 #### Getting credentials
+Option 1:
+Try out [Google-Tokens](https://github.com/bradoyler/google-tokens)
+
+----
+
+Option 2: use OAuthPlayground to get tokens for a required scope
 1. Got to https://console.developers.google.com
 2. Create an account
 3. In the right sidebar click `Credentials`
