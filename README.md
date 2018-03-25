@@ -41,30 +41,42 @@ gSheetToJSON.getRows(options)
 ```
 
 ----
-### Getting credentials
+## Getting credentials
 > yes, this is STILL painful
 
-#### Option 1:
-Use OAuthPlayground to get OAuth tokens
+### Option 1: Use OAuthPlayground to get OAuth tokens  
 
+#### A: Setup Google API account
 1. Goto: https://console.developers.google.com
 2. Create an account
 3. In the right sidebar click `Credentials`
 4. Then click `Create credentials`, select `oAuth client ID`, select `Web application`
 6. Name your Web Application
-7. Enter `https://developers.google.com/oauthplayground` as an authorized redirect URLs
-8. Have your `Client ID` and `Client secret` ready
-9. Go to [https://developers.google.com/oauthplayground/](https://developers.google.com/oauthplayground/)
-10. Under `Step 1` authorize all `Google Sheets API v4`
-11. Click the Gear button in upper right of the page and check `Use your own OAuth credentials`
-13. Enter your `Client ID` and `Client secret`
-14. Click `Authorize APIs`
-15. Then request auth tokens, grab generated the `refresh token`.
-16. Save your `client_id`, `client_secret` & `refresh_token` somewhere
 
-#### Option 2:
+#### B: Get tokens from OAuthPlayground
+1. Enter `https://developers.google.com/oauthplayground` as an authorized redirect URLs
+2. Have your `Client ID` and `Client secret` ready
+3. Go to [https://developers.google.com/oauthplayground/](https://developers.google.com/oauthplayground/)
+4. Under 'Step 1', paste `https://www.googleapis.com/auth/spreadsheets.readonly` into 'Authorize APIs'
+5. Click the Gear button in upper right of the page and check `Use your own OAuth credentials`
+6. Enter your `Client ID` and `Client secret`
+7. Click `Authorize APIs`
+8. Then request auth tokens, grab generated the `refresh token`.
+9. Save your keys in config.json, like so:
+```js
+{
+  "google": {
+    "client_id": "<from google console>",
+    "client_secret": "<from google console>",
+    "oAuthTokens":{"refresh_token": "<from google OAuth playground>"},
+    "redirect_urls":["http://localhost"]
+  }
+}
+```
+
+### Option 2:
 - [Google-OAuth2-Token](https://github.com/h2non/google-oauth2-token) - Get a fresh OAuth2 token for Google APIs in just one command
 
-#### Option 3:
+### Option 3:
 - [OAuth2L](https://github.com/google/oauth2l)
 (uses Python) - a simple CLI for interacting with Google oauth tokens.
