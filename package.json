@@ -27,6 +27,6 @@
   "dependencies": {
     "commander": "^2.13.0",
     "debug": "^3.1.0",
-    "googleapis": "^22.2.0"
+    "googleapis": "^34.0.0"
   }
 }
