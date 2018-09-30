@@ -6,18 +6,12 @@ Node.js library to read a Google Sheet (v4) and convert to JSON collection
 npm install googlesheet-to-json --save
 ```
 
-### Setup Google Auth Tokens
-```sh
-cp config.example.json config.json
-```
-and populate your `config.json` with `client_id`, `client_secret` & `refresh_token`
-
-[For more info, see getting credentials](#getting-credentials)
+### Setup Google API credentials (gtokens)
+[See getting credentials](#getting-credentials)
 
 ## CLI
 ```
 npm install -g googlesheet-to-json
-## setup .gtokens.json
 googlesheet-to-json <spreadsheetId> -s 'Sheet1' > out.json
 ```
 
