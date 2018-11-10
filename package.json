@@ -1,6 +1,6 @@
 {
   "name": "googlesheet-to-json",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Node.js library to read from Google Sheets API (v4) and convert to JSON collection",
   "main": "index.js",
   "homepage": "https://github.com/bradoyler/googlesheet-to-json",
