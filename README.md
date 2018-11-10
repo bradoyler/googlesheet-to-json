@@ -6,7 +6,7 @@ Node.js library to read a Google Sheet (v4) and convert to JSON collection
 npm install googlesheet-to-json --save
 ```
 
-### Setup Google API credentials (gtokens)
+### Setup Google API credentials (Service Account)
 [See getting credentials](#getting-credentials)
 
 ## CLI
@@ -17,26 +17,23 @@ googlesheet-to-json <spreadsheetId> -s 'Sheet1' > out.json
 
 ## API
 ```
-const config = require('./.gtokens.json').web // see 'Getting Credentials' below
+// see 'Getting Credentials' below
+const { private_key, client_email } = require('./googleServiceAccount.json')
 const GoogleSheetToJSON = require('googlesheet-to-json')
-const gSheetToJSON = new GoogleSheetToJSON(config)
+const gSheetToJSON = new GoogleSheetToJSON({ private_key, client_email })
 
-const options = {
-    spreadsheetId: '1gTERIVPV_0yoMXc6mlBtBpNvaoH5pIU2IC-75V_Qcas',
-    range: 'Sheet1',
-    oAuthTokens: config.oAuthTokens
-}
+const spreadsheetId = '1gTERIVPV_0yoMXc6mlBtBpNvaoH5pIU2IC-75V_Qcas'
+const range = 'Sheet1'
 
-gSheetToJSON.getRows(options)
-.then((rows) => {
-  console.log('rows:', rows)
-})
-.catch(console.error)
+gSheetToJSON.getRows({ spreadsheetId, range })
+ .then(rows => console.log('rows:', rows))
+ .catch(console.error)
 ```
 
 ----
 ## Getting credentials
 
-1. copy `.gtokens.example.json` -> `.gtokens.json`
-1. Run [Google-Tokens](https://github.com/bradoyler/google-tokens)
-1. Populate `.gtokens.json` with appropriate values
+1. Login to [Google API console](https://console.developers.google.com) 
+1. Create 'Service Account' credentials @ https://console.developers.google.com/apis/credentials
+1. Download credentials json file and rename to `googleServiceAccount.json`
+1. Copy `googleServiceAccount.json` to root of your project and add to `.gitignore`

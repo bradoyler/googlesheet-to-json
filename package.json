@@ -13,7 +13,8 @@
     "googlesheet-to-json": "lib/cli.js"
   },
   "scripts": {
-    "test": "node test"
+    "test": "node test",
+    "test:cli": "googlesheet-to-json 1zRBraEIAA-Zo7-0Upi9BbyF4-qp8-KuXoPZbORM5J00 -s 2016Races"
   },
   "repository": {
     "type": "git",

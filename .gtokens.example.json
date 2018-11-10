@@ -1,9 +1,0 @@
-{
-    "web": {
-        "client_id":"-- see 'google-tokens' --",
-        "client_secret":"-- see 'google-tokens' --",
-        "oAuthTokens":{
-        "refresh_token":"-- see 'google-tokens' --"
-        }
-    }
-}
